@@ -22,4 +22,11 @@ public class RentalService {
         String fooResourceUrl = String.format("http://localhost:8080/movies/%s/true", id);
         restTemplate.put(fooResourceUrl, null);
     }
+
+    public void rentMovie(Long id) {
+        String fooResourceUrl = String.format("http://localhost:8080/movies/%s/false", id);
+        restTemplate.put(fooResourceUrl, null);
+    }
+
+
 }

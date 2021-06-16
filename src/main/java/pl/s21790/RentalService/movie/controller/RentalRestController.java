@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.s21790.RentalService.movie.model.Movie;
 import pl.s21790.RentalService.movie.service.RentalService;
 
+
 @RestController
 @RequestMapping("")
 public class RentalRestController {
@@ -20,9 +21,14 @@ public class RentalRestController {
         return ResponseEntity.ok(rentalService.getMovie(id));
     }
 
-    @PostMapping("rental/available/{id}")
+    @PostMapping("rental/{id}/return/")
     public void returnMovie(@PathVariable Long id) {
         rentalService.returnMovie(id);
+    }
+
+    @PostMapping("rental/{id}/rent/")
+    public void rentMovie(@PathVariable Long id) {
+        rentalService.rentMovie(id);
     }
 
 
